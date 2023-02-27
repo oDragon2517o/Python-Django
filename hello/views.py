@@ -1,6 +1,12 @@
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect, JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
-  
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, "index.html")
+
+
 def Hello(request):
     return HttpResponse("Hello METANIT.COM")
 
@@ -87,9 +93,9 @@ def details(request):
 #def index(request):
 #    return JsonResponse({"name": "Tom", "age": 38})
 
-def index(request):
-    bob = Person("Bob", 41)
-    return JsonResponse(bob, safe=False, encoder=PersonEncoder)
+#def index(request):
+#    bob = Person("Bob", 41)
+#    return JsonResponse(bob, safe=False, encoder=PersonEncoder)
  
 class Person:
   
