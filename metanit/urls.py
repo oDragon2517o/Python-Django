@@ -60,4 +60,8 @@ urlpatterns = [
     path("user/", views.user3),
 
     path('Hello', views.Hello),
+
+
+    ################################
+    path("index20", views.index20),
 ]

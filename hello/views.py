@@ -1,10 +1,14 @@
+from pipes import Template
+from wsgiref.util import request_uri
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect, JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
+from django.template.response import TemplateResponse
 
 
 def index(request):
-    return render(request, "index.html")
+    data ={"header":"Hello Django","message": "Welcome to Python"}
+    return TemplateResponse(request, "index.html", context=data)
 
 
 def Hello(request):
@@ -109,3 +113,17 @@ class PersonEncoder(DjangoJSONEncoder):
             return {"name": obj.name, "age": obj.age}
             # return obj.__dict__
         return super().default(obj)
+
+
+###############################################
+
+
+def index20(request):
+    header = "Данные пользователя"              # обычная переменная
+    langs = ["Python", "Java", "C#"]            # список
+    user ={"name" : "Tom", "age" : 23}          # словарь
+    address = ("Абрикосовая", 23, 45)           # кортеж
+  
+    data = {"header": header, "langs": langs, "user": user, "address": address}
+    return render(request, "index.html", context=data)
+
