@@ -64,4 +64,5 @@ urlpatterns = [
 
     ################################
     path("index20", views.index20),
+    path("index30", views.index30),
 ]

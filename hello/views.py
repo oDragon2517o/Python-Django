@@ -116,6 +116,7 @@ class PersonEncoder(DjangoJSONEncoder):
 
 
 ###############################################
+# Передача данных в шаблон
 
 
 def index20(request):
@@ -124,6 +125,17 @@ def index20(request):
     user ={"name" : "Tom", "age" : 23}          # словарь
     address = ("Абрикосовая", 23, 45)           # кортеж
   
-    data = {"header": header, "langs": langs, "user": user, "address": address}
+    data = {"header": header, "langs": langs, "user": user, "address": address, "person": Person("Tomxx")}
     return render(request, "index.html", context=data)
 
+
+
+class Person:
+  
+    def __init__(self, name):
+        self.name = name    # имя человека
+
+# Встроенные теги шаблонов
+
+def index30(request):
+    return render(request, "index.html", context = {"body": "<h1>Hello World!</h1>"})
