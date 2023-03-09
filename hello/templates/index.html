@@ -1,34 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-    <title>Django на METANIT.COM</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Django на METANIT.COM</title>
 </head>
 <body>
-    <!--<h1>{{ header }}</h1>
-    <p>Имя: {{ user.name}} Возраст: {{user.age}}</p>
-    <p>Адресс: ул. {{address.0}}, д. {{address.1}}, кв. {{address.2}}</p>
-    <p>Языки: {{langs.0}}, {{langs.1}}</p>
-    <h1>Person {{ person.name }}</h1>
-
-    {{ body }}
-
-    {% autoescape off %}
-    {{ body }}
-    {% endautoescape %}-->
-    {% comment %}
-    <p>Вывод содержимого в шаблон Django</p>
-    {% endcomment %}
-
-    {{ body }}
-
-
-
-
-    <p>{% now "Y" %}</p>
-    <p>{% now "F j Y" %}</p>
-    <p>{% now "N, j, Y" %}</p>
-    <p>{% now "N j, Y, P" %}</p>
-
+    <h1>Зимний лес</h1>
+    <img src="{% static 'images/images.jpg' %}" alt="зимний лес sss">
 </body>
 </html>

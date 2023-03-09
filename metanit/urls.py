@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path, re_path, include
 from hello import views
+from django.views.generic import TemplateView
  
 
 product_patterns = [
@@ -37,7 +38,7 @@ urlpatterns = [
     path("products/<int:id>/", include(product_patterns)),
 
 
-    path("index", views.index),
+    #path("index", views.index),
     path("error", views.error),
     path("txt", views.txt),
     #path('about', views.about, kwargs={"name":"Tom", "age": 38}),
@@ -65,4 +66,14 @@ urlpatterns = [
     ################################
     path("index20", views.index20),
     path("index30", views.index30),
+
+    ########## TemplateView
+    path("about2/", TemplateView.as_view(template_name="about2.html")),
+    path("contact2/", TemplateView.as_view(template_name="contact2.html")),
+    
+    #Расширение шаблонов и фильтр extends
+
+    path("indexBase/", views.indexBase),
+    path("contactsBase/", views.contactsBase),
+
 ]

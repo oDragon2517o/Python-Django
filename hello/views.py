@@ -139,3 +139,12 @@ class Person:
 
 def index30(request):
     return render(request, "index.html", context = {"body": "<h1>Hello World!</h1>"})
+
+
+# Расширение шаблонов и фильтр extends
+
+def indexBase(request):
+    return render(request, "indexBase.html")
+ 
+def contactsBase(request):
+    return render(request, "contactsBase.html")
